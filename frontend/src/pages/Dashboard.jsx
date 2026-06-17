@@ -1,7 +1,7 @@
 // src/pages/Dashboard.jsx
 import { useState, useEffect } from "react";
 
-const API_BASE_URL = "http://localhost:5000";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 function Dashboard({ user }) {
   const [activeTab, setActiveTab] = useState("records");
@@ -713,7 +713,6 @@ function Dashboard({ user }) {
               />
             </div>
 
-            {/* File upload */}
             <div className="form-row">
               <label className="form-label">
                 Upload Prescription / Report (optional)
@@ -996,7 +995,7 @@ function Dashboard({ user }) {
                     {r.filePath ? (
                       <span className="pill-secondary">
                         <a
-                          href={`http://localhost:5000${r.filePath}`}
+                          href={`${API_BASE_URL}${r.filePath}`}
                           target="_blank"
                           rel="noreferrer"
                         >
